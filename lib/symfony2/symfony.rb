@@ -183,10 +183,10 @@ namespace :symfony do
 
         tmp_options = options
 
-        if deploy_via == :capifony_copy_local
-          # do not run scripts locally: they must be executed on the target server
-          tmp_options += " --no-scripts"
-        end
+#        if deploy_via == :capifony_copy_local
+#          # do not run scripts locally: they must be executed on the target server
+#          tmp_options += " --no-scripts"
+#        end
 
         run_locally "cd #{$temp_destination} && SYMFONY_ENV=#{symfony_env_prod} #{composer_bin} install #{tmp_options}"
         capifony_puts_ok
