@@ -188,12 +188,12 @@ namespace :symfony do
 #          tmp_options += " --no-scripts"
 #        end
 
-        run_locally "cd #{$temp_destination} && SYMFONY_ENV=#{symfony_env_prod} #{composer_bin} install #{tmp_options}"
+        run_locally "cd #{$temp_destination} && SYMFONY_ENV=#{symfony_env_prod} SYMFONY__ENV=#{symfony_env_prod} #{composer_bin} install #{tmp_options}"
         capifony_puts_ok
       else
         capifony_pretty_print "--> Installing Composer dependencies"
 
-        command = "#{try_sudo} sh -c 'cd #{latest_release} && SYMFONY_ENV=#{symfony_env_prod} #{composer_bin} install #{options}'"
+        command = "#{try_sudo} sh -c 'cd #{latest_release} && SYMFONY_ENV=#{symfony_env_prod} SYMFONY__ENV=#{symfony_env_prod} #{composer_bin} install #{options}'"
 
         if interactive_mode
 
