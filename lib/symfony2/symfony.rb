@@ -170,7 +170,8 @@ namespace :symfony do
 
     desc "Runs composer to install vendors from composer.lock file"
     task :install, :roles => :app, :except => { :no_release => true } do
-
+      
+  if run_composer
       if !composer_bin
         symfony.composer.get
         set :composer_bin, "#{php_bin} composer.phar"
@@ -257,6 +258,9 @@ namespace :symfony do
         capifony_puts_ok
       end
     end
+  else
+    capifony_pretty_print "No composer should be run"
+  end
 
     desc "Runs composer to update vendors, and composer.lock file"
     task :update, :roles => :app, :except => { :no_release => true } do
