@@ -259,6 +259,7 @@ namespace :symfony do
       end
   else
     capifony_pretty_print "No composer should be run"
+    capifony_puts_ok
     end
   end
 
