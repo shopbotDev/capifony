@@ -257,9 +257,9 @@ namespace :symfony do
 
         capifony_puts_ok
       end
-    end
   else
     capifony_pretty_print "No composer should be run"
+    end
   end
 
     desc "Runs composer to update vendors, and composer.lock file"
