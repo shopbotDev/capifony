@@ -384,7 +384,7 @@ namespace :symfony do
           capifony_pretty_print "--> Warming up cache"
         end
 
-        run "#{try_sudo} sh -c 'cd #{latest_release} && #{php_bin} #{symfony_console} cache:#{action.to_s} #{console_options}'"
+        run "#{try_sudo} sh -c 'cd #{latest_release} && SYMFONY__DEV__USERNAME=#{symfony_dev_username} #{php_bin} #{symfony_console} cache:#{action.to_s} #{console_options}'"
         run "#{try_sudo} chmod -R g+w #{latest_release}/#{cache_path}"
         capifony_puts_ok
       end
